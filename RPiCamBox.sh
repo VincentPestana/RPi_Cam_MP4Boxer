@@ -1,6 +1,6 @@
 #!/bin/bash
 basedir=/var/www/html
-mediadir=$basedir/media/
+mediadir=$basedir/media
 h264backup=/var/www/html/h264
 filesh264=$basedir/media/*.h264
 
@@ -24,10 +24,7 @@ do
     #mv $mediadir/$filename.h264 $h264backup/$filename.h264
     cp $mediadir/$filename.h264 $h264backup/$filename.h264
     echo "File copied to backup"
-  else
-    exit -1
   fi
-  exit 100
 done
 
 
