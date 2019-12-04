@@ -14,16 +14,14 @@ fi
 
 for f in $filesh264
 do
-  echo "Processing file $f..."
   # take action on each file. $f store current file name
-  #cat $f
+  echo "Processing file $f..."
   filename=$(basename -- "${f%.*}")
-  #echo $filename
   if ( MP4Box -add $mediadir/$filename.h264 $mediadir/$filename.mp4 )
   then
-    #mv $mediadir/$filename.h264 $h264backup/$filename.h264
-    cp $mediadir/$filename.h264 $h264backup/$filename.h264
-    echo "File copied to backup"
+    mv $mediadir/$filename.h264 $h264backup/$filename.h264
+    #cp $mediadir/$filename.h264 $h264backup/$filename.h264
+    echo "File moved to backup"
   fi
 done
 
