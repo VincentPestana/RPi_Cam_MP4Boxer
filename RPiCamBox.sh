@@ -4,7 +4,6 @@ mediadir=$basedir/media
 h264backup=/var/www/html/h264
 filesh264=$basedir/media/*.h264
 
-
 #check if folders exist
 if [ ! -d $h264backup ]
 then
@@ -12,10 +11,13 @@ then
   mkdir $h264backup || exit -1
 fi
 
+echo "Files to process: $filesh264";
+
 for f in $filesh264
 do
   # take action on each file. $f store current file name
   echo "Processing file $f..."
+  #echo "Processing [current number]/$filesh264 - $f";
   filename=$(basename -- "${f%.*}")
   if ( MP4Box -add $mediadir/$filename.h264 $mediadir/$filename.mp4 )
   then
